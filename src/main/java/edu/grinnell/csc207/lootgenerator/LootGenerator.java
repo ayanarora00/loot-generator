@@ -292,6 +292,11 @@ public class LootGenerator {
 
     // }
 
+    /** Main function that is the driver for the program
+     * 
+     * @param args - the command line arguments
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("This program kills monsters and generates loot!");
 
