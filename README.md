@@ -1,13 +1,22 @@
 # Project: Loot Generator
 
-Authors: (_TODO: fill in names here!_)
+Authors: Ayan Arora (Textfiles and starting structure provided by Prof. Osera)
 
 ## Resources
 
-*   (_TODO: fill in resources here!_)
-*   ...
-*   ...
+*   Prof. Osera, mentor David Rhoades and Grinnell CS department
+*   Consulted documentation for scanner methods and how to use them (for reading in files, accesing next line, etc)
+*   A few string methods like split and trim also come from consulting Java API docs
+*   Java API docs also consulted for hashmap/dictionary implementation
+*   TTAP mapping structure page consulted for map functions
+*   Java version 17
+*   VS Code IDE
 
 ## Revision Log
 
-*   (_TODO: fill in your changes to your project here!_)
+*   No feedback for revisions yet
+
+## Notes:
+
+*  Due to time constraints, a couple of parts of the project couldn't fully be implemented: The affix generation and the tests
+*  Will be done in the revision submission
