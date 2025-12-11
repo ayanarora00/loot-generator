@@ -16,7 +16,3 @@ Authors: Ayan Arora (Textfiles and starting structure provided by Prof. Osera)
 
 *   No feedback for revisions yet
 
-## Notes:
-
-*  Due to time constraints, a couple of parts of the project couldn't fully be implemented: The affix generation and the tests
-*  Will be done in the revision submission
