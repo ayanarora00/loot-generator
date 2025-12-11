@@ -9,7 +9,7 @@ import javax.crypto.NullCipher;
 
 public class LootGenerator {
     /** The path to the dataset (either the small or large set). */
-    private static final String DATA_SET = "data/small";
+    private static final String DATA_SET = "data/large";
 
     // Declaring a random variable for later use
     static Random rand = new Random();
@@ -272,6 +272,11 @@ public class LootGenerator {
 
     }
 
+    /** This function used to generate the base item's stats from the item name
+     * 
+     * @return the base item stats 
+     * @param Baseitem the baseitem whose stats are generated
+     */
     public static String generateBaseStats(String Baseitem){
        
         // to return -- Defense: <defense value>
@@ -287,10 +292,48 @@ public class LootGenerator {
 
     }
 
-    // TO IMPLEMENT:
-    // public String generateAffix(String Baseitem){
+    /** This function used to generate an affix for the baseitem
+     * 
+     * @return the affix generated
+     * @param generation the variable deciding whether to generate a suffix or prefix
+     */
+    public static MagicAffix generateAffix(int generation){
 
-    // }
+        // Declaring the variable;
+        MagicAffix affix;
+
+        // If the generation variable is divisible by 2, we get a suffix from the suffix list
+        if (generation % 2 == 0){
+            affix = suffix.get((int) (Math.random() * suffix.size()));
+        } else {
+            // Else, we get a prefix
+            affix = prefix.get((int) (Math.random() * prefix.size()));
+        }
+
+        // Returning the affix
+        return affix;
+
+     
+    }
+
+    /** This function used to generate an affix stats
+     * 
+     * @return the stats generated of the MagicAffix object we pass in
+     * @param affix the MagicAffix object
+     */
+    public static String generateAffixStats(MagicAffix affix){
+    
+        // Getting the mod1code
+        String mod1code = affix.getmod1code();
+        int mod1max = affix.getmod1max();
+        int mod1min = affix.getmod1min();
+
+        // We calculate its random value and return the stat in the format required
+        int value = rand.nextInt(mod1min, mod1max);
+        return (value + " " + mod1code);
+  
+    }
+
 
     /** Main function that is the driver for the program
      * 
@@ -341,10 +384,22 @@ public class LootGenerator {
 
             // Using that base item, we generate its stats
             String stats = generateBaseStats(baseitem);
+
+            int generation = (int) (Math.random() * 2);
+
+            MagicAffix affix = generateAffix(generation);
+            
+            String affixStats = generateAffixStats(affix);
             
             // Again we print the baseitem along with its stats according to the prompt:
-            System.out.println(baseitem);
+            if (generation % 2 == 0){
+                System.out.println(baseitem + " " + affix.getName());
+            } else {
+                System.out.println(affix.getName() + baseitem);
+            }
             System.out.println(stats);
+            System.out.println(affixStats);
+
 
             // Prompting the user with whether they want to play again
             System.out.println("Fight again [y/n]? <echoed user input from Scanner>");
